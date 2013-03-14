@@ -1,3 +1,4 @@
+<?php Yii::app()->getClientScript()->registerPackage('main'); ?>
 <div class="main">
 <?php $form = $this->beginWidget('CActiveForm'); ?>
 
@@ -15,7 +16,7 @@
 
     <div class="field">
         <?php echo $form->labelEx($model, 'message'); ?>
-        <?php echo $form->textArea($model, 'message', array('rows' => 12, 's' => 200)); ?>
+        <?php echo $form->textArea($model, 'message', array('rows' => 12, 'width' => 200)); ?>
         <?php echo $form->error($model, 'message', array('class' => 'label label-important')); ?>
     </div>
 

@@ -1,3 +1,4 @@
+<?php Yii::app()->getClientScript()->registerPackage('main'); ?>
 <div class="main">
 <?php $form = $this->beginWidget('CActiveForm'); ?>
 

@@ -1,13 +1,11 @@
+<?php //Yii::app()->getClientScript()->registerCoreScript('jquery'); ?>
+<?php //Yii::app()->getClientScript()->registerCoreScript('myJs');  ?>
+<?php //Yii::app()->getClientScript()->registerPackage('main'); ?>
+<?php //Yii::app()->clientScript->setCoreScriptUrl(Yii::app()->request->baseUrl . '/js'); ?>
+
 <!DOCTYPE html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css">
-
-    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.js"></script>
-    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/js.js"></script>
-
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 

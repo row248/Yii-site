@@ -1,3 +1,4 @@
+<?php Yii::app()->getClientScript()->registerPackage('main'); ?>
 <div class="main">
 <?php $form = $this->beginWidget('CActiveForm'); ?>
 
@@ -15,11 +16,11 @@
 
 <div class="field rememberMe">
 	<?php echo $form->checkBox($model, 'rememberMe'); ?>
-	<?php echo $form->label($model, 'rememberMe');?>
+	<?php echo $form->label($model, 'rememberMe', array('class' => 'rememberMeLabel'));?>
 </div>
 
 <div class="field">
-	<?php echo CHtml::submitButton('Войти'); ?>
+	<?php echo CHtml::submitButton('Войти', array('class' => 'btn btn-success')); ?>
 </div>
 
 <?php $this->endWidget(); ?>

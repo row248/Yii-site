@@ -3,6 +3,8 @@
 return array(
     'name' => 'My site',
 
+    'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
+
     'import' => array(
         'application.models.*',
         'application.components.*',
@@ -16,6 +18,25 @@ return array(
     ),
 
     'components' => array(
+        
+        'clientScript' => array(
+
+            'packages' => array(
+                'main' => array(
+                    'baseUrl' => 'files/main',
+                    'js' => array('js.js'),
+                    'css' => array('bootstrap.css', 'style.css'),
+                    'depends' => array('jquery')
+                ),
+
+                'words' => array(
+                    'baseUrl' => 'files/words',
+                    'js' => array('js.js', 'bootstrap.js'),
+                    'css' => array('bootstrap.css', 'style.css'),
+                    'depends' => array('jquery')
+                ),
+            ),
+        ),
 
         'request' => array(
             'enableCsrfValidation' => true

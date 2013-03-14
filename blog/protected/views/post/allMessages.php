@@ -1,9 +1,13 @@
+<?php Yii::app()->getClientScript()->registerPackage('main'); ?>
+
+<div class="grid-form">
+	
 <?php echo CHtml::form(); ?>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id' => 'messages-grid',
 	'dataProvider' => $model->search(),
-	'cssFile' => Yii::app()->baseUrl . '/css/style.css',
+	'cssFile' => false, //Yii::app()->baseUrl . '/css/style.css',
 	'columns' => array(
 		'name',
 		'email',
@@ -19,19 +23,22 @@
 	)),
 )); ?> 
 
-<div class="delete-msg">
 
-	<script>
-	function reloadGrid() {
-		$.fn.yiiGridView.update('messages-grid');
-	}
-	</script>
+	<div class="delete-msg">
 
-	<?php echo CHtml::ajaxSubmitButton('Удалить', array('Post/AjaxDelete'),
-				array('type' => 'POST', 'success' => 'reloadGrid',
-				'beforeSend'=>'function() { if(confirm("Подтвердить удаление?")) return true; return false; }' ), 
+		<script>
+		function reloadGrid() {
+			$.fn.yiiGridView.update('messages-grid');
+		}
+		</script>
 
-				array('class' => 'btn btn-danger')); ?>
+		<?php echo CHtml::ajaxSubmitButton('Удалить', array('Post/AjaxDelete'),
+					array('type' => 'POST', 'success' => 'reloadGrid',
+					'beforeSend'=>'function() { if(confirm("Подтвердить удаление?")) return true; return false; }' ), 
+
+					array('class' => 'btn btn-danger')); ?>
+
+	</div>
 
 </div>
 
