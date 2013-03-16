@@ -18,6 +18,12 @@ return array(
     ),
 
     'components' => array(
+
+        'components' => array(
+            'urlManager' => array(
+                'urlFormat' => 'path'
+            )
+        ),
         
         'clientScript' => array(
 

@@ -127,7 +127,7 @@ hr {
 	-webkit-user-select: none;
 	user-select: none;
 	position: absolute;
-	margin-top: 110px;
+	margin-top: 135px;
 	margin-left: 4px;
 }
 
@@ -142,6 +142,10 @@ hr {
 .btn-group {
 	position: absolute;
 	display: block;
+}
+
+.dropdown-menu {
+	width: 255px;
 }
 
 .dropdown-menu > a {

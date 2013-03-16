@@ -37,7 +37,7 @@ class ProfileWordsController extends Controller {
     public function actionRandomWords() {
     	$model = new WordsService;
     	$model->initDb();
-    	$model->randomWords();
+    	$model->randomWords(false);
 
     	$this->actionShowProfile();
     }

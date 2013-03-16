@@ -19,10 +19,11 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu">
-    <?php echo CHtml::link('В разброс', array('words/randomWords')); ?><br>
+    <?php echo CHtml::link('Перемешать', array('words/randomWords')); ?><br>
     <?php echo CHtml::link('Самые частые', array('words/mostOften')); ?><br>
     <?php echo CHtml::link('Самые редкие', array('words/mostRare')); ?><br>
-    <?php echo CHtml::link('Совпадения с базой', array('words/matchWithDb')); ?>
+    <?php echo CHtml::link('Совпадения с базой', array('words/matchWithDb')); ?><br>
+    <?php echo CHtml::link('Перемешать совпадения с базой', array('words/randomMatchDb')); ?>
     <!-- dropdown menu links -->
   </ul>
 </div>

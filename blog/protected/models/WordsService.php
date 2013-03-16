@@ -3,7 +3,7 @@
 class WordsService {
 
 	// File with subtitle
-	public $srt = 'The Wire [1x07] One Arrest.srt5'; // DELETE
+	public $srt; // Clear file name, without id
 	public $words;
 	public $fileName;
 	public $number;
@@ -241,7 +241,8 @@ class WordsService {
     }
 
     public function initDb() {
-    	$this->fileName = $this->changeFileName($this->srt, 'db');
+        $this->srt = $this->getUserFileName();
+    	$this->fileName = $this->changeFileName($this->srt . id(), 'db');
     	$this->initWorkWithDb($this->fileName, $this->number, $this->storeName);
     }
 
@@ -266,8 +267,10 @@ class WordsService {
     }
 
 
-    public function randomWords() {
-        $this->words = $this->searchWords($this->srt . id());
+    public function randomWords($search = true) {
+        if ( $search ) {
+            $this->words = $this->searchWords($this->srt . id());
+        }
     	$this->words = $this->shuffleArray($this->words);
     	$this->words = $this->incrementKeyInArray($this->words);
     	$this->saveWords($this->words, $this->fileName);
@@ -302,6 +305,14 @@ class WordsService {
         }
 
         $this->words = $result;
+        $this->words = $this->incrementKeyInArray($this->words);
+        $this->saveWords($this->words, $this->fileName);
+        $this->syncWithStore($this->storeName, $this->number, 'reset');
+    }
+
+    public function randomMatchDb() {
+        $this->matchWithDb();
+        $this->words = $this->shuffleArray($this->words);
         $this->words = $this->incrementKeyInArray($this->words);
         $this->saveWords($this->words, $this->fileName);
         $this->syncWithStore($this->storeName, $this->number, 'reset');

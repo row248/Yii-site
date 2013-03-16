@@ -85,4 +85,12 @@ class WordsController extends Controller {
 
 		$this->redirect(array('showWords'));
 	}
+
+	public function actionRandomMatchDb() {
+		$model = new WordsService;
+		$model->init();
+		$model->randomMatchDb();
+
+		$this->redirect(array('showWords'));
+	}
 }
