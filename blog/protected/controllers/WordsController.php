@@ -4,7 +4,8 @@ class WordsController extends Controller {
 
 	public function actionOpenWords() {
 		$model = new WordsService;
-		$model->reset();
+		$model->init();
+		$model->mostOftenWords();
 		$this->redirect(array('showWords'));
 	}
 

@@ -44,9 +44,20 @@ class Messages extends CActiveRecord {
 		//var_dump(Yii::app()->pagination);
 		return new CActiveDataProvider('Messages', array(
 			'pagination' => array(
-				'pagesize' => 10, 
+				'pagesize' => 20, 
 			),
+			'sort' => array(
+				'defaultOrder' => 'id DESC',
+				'attributes' => array('message')
+			)
 		));
+	}
+
+	public static function filterLength($text) {
+		if ( strlen($text) > 700 ) {
+			$text  = substr($text, 0, 700);
+		} 
+		return $text;
 	}
 
 }

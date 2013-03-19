@@ -18,7 +18,7 @@
 		//'type' => 'html',
 		'value' => '!$data->current_subtitle ? CHtml::ajaxSubmitButton("Выбрать", array(\'site/choiseSubtitle\'),
 					array(\'type\' => \'POST\', \'success\' => \'reloadGrid\', \'data\' => array(\'id\' => $data->id,
-					\'YII_CSRF_TOKEN\' => csrf())), array(\'class\' => \'btn btn-info\')) : "Выбранные" '
+					\'YII_CSRF_TOKEN\' => H::csrf())), array(\'class\' => \'btn btn-info\')) : "Выбранные" '
 	),
 	array(
 		'name' => 'id',
@@ -45,7 +45,7 @@
 
 		<?php echo CHtml::ajaxSubmitButton('Удалить', array('site/AjaxDelete'),
 					array('type' => 'POST', 'success' => 'reloadGrid',
-					'beforeSend'=>'function() { if(confirm("Подтвердить удаление?")) return true; return false; }' ), 
+					'beforeSend'=>'function() { if(confirm("Подтвердить?")) return true; return false; }' ), 
 
 					array('class' => 'btn btn-danger')); ?>
 

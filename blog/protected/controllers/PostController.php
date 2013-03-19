@@ -7,7 +7,7 @@ class PostController extends Controller {
 	public function actionViewMessages() {
 		if ( Yii::app()->user->checkAccess('administrator') ) {
 
-			$model = new Messages('search');
+			$model = new Messages;
 
 			/*
 			if ( isset($_GET['Messages']) ) {
@@ -41,5 +41,19 @@ class PostController extends Controller {
 
 	public function loadModel() {
 		return $this->model = Messages::model()->findAllByPk($_POST['id']);
+	}
+
+	public function actionFullScreenMsg() {
+		$model = new Messages;
+		if ( isset($_POST['id']) ) {
+			$data = Messages::model()->findByPk($_POST['id']);
+			$msg = $data->message;
+			$title = $data->email;
+			$this->renderPartial('fullMessage', array('model' => $model, 'msg' => $msg, 'title' => $title));
+		} else {
+			throw new Exception("Invalid id");
+		}
+
+		$this->render('allMessages', array('model' => $model));
 	}
 }

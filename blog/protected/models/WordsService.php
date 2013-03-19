@@ -207,7 +207,7 @@ class WordsService {
      */
     private function initWorkWithFile($fileName, &$number, $storeName) {
     	if ( !file_exists($fileName) ) {
-    		$words = $this->searchWords( $this->srt . id() );
+    		$words = $this->searchWords( $this->srt . H::id() );
     		$words = $this->incrementKeyInArray($words);
     		$this->saveWords($words, $fileName);
     		$this->syncWithStore($storeName, $number, 'reset');
@@ -242,13 +242,13 @@ class WordsService {
 
     public function initDb() {
         $this->srt = $this->getUserFileName();
-    	$this->fileName = $this->changeFileName($this->srt . id(), 'db');
+    	$this->fileName = $this->changeFileName($this->srt . H::id(), 'db');
     	$this->initWorkWithDb($this->fileName, $this->number, $this->storeName);
     }
 
     public function init() {
         $this->srt = $this->getUserFileName();
-    	$this->fileName = $this->changeFileName($this->srt . id(), 'file');
+    	$this->fileName = $this->changeFileName($this->srt . H::id(), 'file');
     	$this->initWorkWithFile($this->fileName, $this->number, $this->storeName);
 
     	$this->action = $this->checkMatchWord($this->currentWord);
@@ -269,7 +269,7 @@ class WordsService {
 
     public function randomWords($search = true) {
         if ( $search ) {
-            $this->words = $this->searchWords($this->srt . id());
+            $this->words = $this->searchWords($this->srt . H::id());
         }
     	$this->words = $this->shuffleArray($this->words);
     	$this->words = $this->incrementKeyInArray($this->words);
@@ -278,7 +278,7 @@ class WordsService {
     }
 
     public function mostRareWords() {
-    	$this->words = $this->searchWords($this->srt . id());
+    	$this->words = $this->searchWords($this->srt . H::id());
     	$this->words = array_reverse($this->words);
     	$this->words = $this->incrementKeyInArray($this->words);
     	$this->saveWords($this->words, $this->fileName);
@@ -286,7 +286,7 @@ class WordsService {
     }
 
     public function mostOftenWords() {
-    	$this->words = $this->searchWords($this->srt . id());
+    	$this->words = $this->searchWords($this->srt . H::id());
     	$this->words = $this->incrementKeyInArray($this->words);
     	$this->saveWords($this->words, $this->fileName);
     	$this->syncWithStore($this->storeName, $this->number, 'reset');
@@ -297,7 +297,7 @@ class WordsService {
      */
     public function matchWithDb() {
         $match = ACWordsService::model()->findAllByAttributes(
-                array('word' => $this->words, 'user_id' => id()));
+                array('word' => $this->words, 'user_id' => H::id()));
         
         $result = array();
         foreach ( $match as $item ) {

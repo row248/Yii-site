@@ -166,7 +166,15 @@ th, td {
 }
 
 tr {
-    //border-bottom: 1px solid rgba(66, 63, 63, 0.08);
+    /*border-bottom: 1px solid rgba(66, 63, 63, 0.08);*/
+}
+
+tr > th {
+    color: white;
+}
+
+td {
+    vertical-align: top;
 }
 
 /* Не работает, выделят текущий td, хотя в гуглбаге на tr вешает свойство
@@ -185,13 +193,18 @@ tr > td:hover {
     text-align: center;
 }
 
+.checkbox-column > input[type="checkbox"] {
+    margin: 0;
+}
+
 .summary {
     margin-bottom: 15px;
     font-family: Georgia, serif;
     font-size: 1.3em;
     letter-spacing: 0.05em;
     word-spacing: 0.05em;
-    text-indent: 0%
+    text-indent: 0%;
+    text-align: left;
 }
 
 .delete-msg {
@@ -266,4 +279,17 @@ tr > td:hover {
 input[type="file"] {
     margin-top: 10px;
     line-height: 0px;
+}
+
+.sort-link:hover {
+    color: #F0C5D6;
+}
+
+.th-header {
+    background-color: #53968B;
+}
+
+.read-further {
+    display: block;
+    margin-top: 3px;
 }
